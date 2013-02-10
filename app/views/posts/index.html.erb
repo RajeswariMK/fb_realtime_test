@@ -1,0 +1,51 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Story</th>
+    <th>Comments count</th>
+    <th>Created Time</th>
+    <th>Updated Time</th>
+    <!-- <th>Created time</th>
+    <th>Name</th>
+    <th>Link url</th>
+    <th>Caption</th>
+    <th>Source</th>
+    <th>Post type</th>
+    <th>Fb post</th>
+    <th>Description</th>
+    <th>Facebook infos</th>
+    <th>Fb updated time</th>
+    <th></th>
+    <th></th>
+    <th></th> -->
+  </tr>
+
+<% @post.each do |post| %>
+  <tr>
+    <td><%= post["story"] %></td>
+    <td><%= post["comments"]["count"] %></td>
+    <td>about <%= time_ago_in_words(post["created_time"]) %>ago</td>
+    <td>about <%= time_ago_in_words(post["updated_time"]) %>ago</td>
+    <!--<td><%#= post.likes_count %></td>
+    <td><%#= post.message %></td>
+    <td><%#= post.picture_url %></td>
+    <td><%#= post.created_time %></td>
+    <td><%#= post.name %></td>
+    <td><%#= post.link_url %></td>
+    <td><%#= post.caption %></td>
+    <td><%#= post.source %></td>
+    <td><%#= post.post_type %></td>
+    <td><%#= post.fb_post_id %></td>
+    <td><%#= post.description %></td>
+    <td><%#= post.facebook_infos_id %></td>
+    <td><%#= post.fb_updated_time %></td>
+ --> 
+   <%#= post %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>

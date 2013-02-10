@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Comments count:</b>
+  <%= @post.comments_count %>
+</p>
+
+<p>
+  <b>Likes count:</b>
+  <%= @post.likes_count %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @post.message %>
+</p>
+
+<p>
+  <b>Picture url:</b>
+  <%= @post.picture_url %>
+</p>
+
+<p>
+  <b>Created time:</b>
+  <%= @post.created_time %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @post.name %>
+</p>
+
+<p>
+  <b>Link url:</b>
+  <%= @post.link_url %>
+</p>
+
+<p>
+  <b>Caption:</b>
+  <%= @post.caption %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @post.source %>
+</p>
+
+<p>
+  <b>Post type:</b>
+  <%= @post.post_type %>
+</p>
+
+<p>
+  <b>Fb post:</b>
+  <%= @post.fb_post_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @post.description %>
+</p>
+
+<p>
+  <b>Facebook infos:</b>
+  <%= @post.facebook_infos_id %>
+</p>
+
+<p>
+  <b>Fb updated time:</b>
+  <%= @post.fb_updated_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

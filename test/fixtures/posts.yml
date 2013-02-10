@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  comments_count: 
+  likes_count: 
+  message: 
+  picture_url: 
+  created_time: 
+  name: 
+  link_url: 
+  caption: 
+  source: 
+  post_type: 
+  fb_post_id: 
+  description: 
+  facebook_infos_id: 
+  fb_updated_time: 2013-02-10 08:24:36
+
+two:
+  comments_count: 
+  likes_count: 
+  message: 
+  picture_url: 
+  created_time: 
+  name: 
+  link_url: 
+  caption: 
+  source: 
+  post_type: 
+  fb_post_id: 
+  description: 
+  facebook_infos_id: 
+  fb_updated_time: 2013-02-10 08:24:36
