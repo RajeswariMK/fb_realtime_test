@@ -11,9 +11,9 @@ class PostsController < ApplicationController
     # @updates = Koala::Facebook::RealtimeUpdates.new(:app_id => '141213822708267', :secret => 'f9b95f55474f790335c44f4be592ec26')
     # p @updates.list_subscriptions, "------------------------"
     # @updates.subscribe("likes","friends", 'http://192.168.43.236:3000/callback', 'my_realtime_verify')
-    @updates = Koala::Facebook::RealtimeUpdates.new(:app_id => '141213822708267', :secret => 'f9b95f55474f790335c44f4be592ec26')
-    @updates.subscribe("user", "likes", 'http://fb-realtime-test.herokuapp.com/facebook/subscription', 'stringToken')
-    Rails.logger.info(@updates.list_subscriptions)
+    # @updates = Koala::Facebook::RealtimeUpdates.new(:app_id => '141213822708267', :secret => 'f9b95f55474f790335c44f4be592ec26')
+    # @updates.subscribe("user", "likes", 'http://fb-realtime-test.herokuapp.com/facebook/subscription', 'stringToken')
+    # Rails.logger.info(@updates.list_subscriptions)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
