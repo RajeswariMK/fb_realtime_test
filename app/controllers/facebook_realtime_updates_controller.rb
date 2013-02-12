@@ -6,20 +6,32 @@ class FacebookRealtimeUpdatesController < ApplicationController
 
   def subscription
     if(realtime_request?(request))
-      case request.method
-      when "GET"
-        challenge = Koala::Facebook::RealtimeUpdates.meet_challenge(params,'stringToken')
+      if request.method == "GET"
+      	challenge = Koala::Facebook::RealtimeUpdates.meet_challenge(params,'stringToken')
         if(challenge)
           render :text => challenge
         else
           render :text => 'Failed to authorize facebook challenge request'
         end
-      when "POST"
-        # case params['object']
-        # Do logic here...
-        p params['object'], "------------------------------params object"
-        render :text => 'Thanks for the update.'
-      end
+      elsif request.method == "POST"
+      	if params["object"]
+      		Rails.logger.info(params["object"])
+      	end
+      end	
+      # case request.method
+	     #  when "GET"
+	     #    challenge = Koala::Facebook::RealtimeUpdates.meet_challenge(params,'stringToken')
+	     #    if(challenge)
+	     #      render :text => challenge
+	     #    else
+	     #      render :text => 'Failed to authorize facebook challenge request'
+	     #    end
+	     #  when "POST"
+	     #    # case params['object']
+	     #    # Do logic here...
+	     #    p params['object'], "------------------------------params object"
+	     #    render :text => 'Thanks for the update.'
+      # end
     end
   end
 
