@@ -1,23 +1,32 @@
 class FacebookRealtimeUpdatesController < ApplicationController
   
   def notify
+  	p request.body, "-----------request body---------"
     if payload?
       # do something clever with the request body.
+
       respond_with 200
     else
       respond_with 400
     end
   end
 
+  # def verify
+  #   challenge = Koala::Facebook::RealtimeUpdates.meet_challenge(params, 'stringToken')
+  #   respond_to do |format|
+  #     format.text do
+  #       render text: challenge
+  #     end
+  #   end
+  # end
   def verify
-    challenge = Koala::Facebook::RealtimeUpdates.meet_challenge(params, 'stringToken')
-    respond_to do |format|
-      format.text do
-        render text: challenge
-      end
+    if params['hub.mode'] == 'subscribe' && params['hub.verify_token'] == ENV['FACEBOOK_VERIFY']
+      respond_with params['hub.challenge'], 200
+    else
+      respond_with 400
     end
   end
- 
+   
   def update
     # TODO: Handle an incoming POST from Facebook
     head :ok
