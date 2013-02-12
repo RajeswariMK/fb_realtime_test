@@ -15,11 +15,10 @@ class FacebookRealtimeUpdatesController < ApplicationController
           render :text => 'Failed to authorize facebook challenge request'
         end
       when "POST"
-        case params['object']
-        	p params['object'], "---------------------------object params"
-        	# Do logic here...
-        	render :text => 'Thanks for the update.'
-    	end
+        # case params['object']
+        # Do logic here...
+        p params['object'], "------------------------------params object"
+        render :text => 'Thanks for the update.'
       end
     end
   end
