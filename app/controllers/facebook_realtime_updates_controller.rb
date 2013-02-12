@@ -11,21 +11,21 @@ class FacebookRealtimeUpdatesController < ApplicationController
     end
   end
 
-  # def verify
-  #   challenge = Koala::Facebook::RealtimeUpdates.meet_challenge(params, 'stringToken')
-  #   respond_to do |format|
-  #     format.text do
-  #       render text: challenge
-  #     end
-  #   end
-  # end
   def verify
-    if params['hub.mode'] == 'subscribe' && params['hub.verify_token'] == 'stringToken'
-      respond_with params['hub.challenge'], 200
-    else
-      respond_with 400
+    challenge = Koala::Facebook::RealtimeUpdates.meet_challenge(params, 'stringToken')
+    respond_to do |format|
+      format.text do
+        render text: challenge
+      end
     end
   end
+  # def verify
+  #   if params['hub.mode'] == 'subscribe' && params['hub.verify_token'] == 'stringToken'
+  #     respond_with params['hub.challenge'], 200
+  #   else
+  #     respond_with 400
+  #   end
+  # end
 
   def update
     # TODO: Handle an incoming POST from Facebook
