@@ -8,8 +8,9 @@ class PostsController < ApplicationController
     @post = @graph.get_connections("me", "feed")
     # p @post, ":---------------------------------------:"
     p @post.size, ":----------------"
-    @updates = Koala::Facebook::RealtimeUpdates.new(:app_id => '141213822708267', :secret => 'f9b95f55474f790335c44f4be592ec26')
-    p @updates.list_subscriptions, "------------------------"
+    # @updates = Koala::Facebook::RealtimeUpdates.new(:app_id => '141213822708267', :secret => 'f9b95f55474f790335c44f4be592ec26')
+    # p @updates.list_subscriptions, "------------------------"
+    # @updates.subscribe("likes","friends", 'http://192.168.43.236:3000/callback', 'my_realtime_verify')
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
