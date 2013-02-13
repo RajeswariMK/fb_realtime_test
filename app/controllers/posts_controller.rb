@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       @graph = Koala::Facebook::API.new(current_user.oauth_token)
       @post = @graph.get_connections("me", "feed")
     else 
-      @post = {}  
+      @post = []  
     end
     # p @post, ":---------------------------------------:"
     p @post.size, ":----------------"

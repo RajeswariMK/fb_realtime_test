@@ -1,3 +1,4 @@
+<% if @post.size > 0 %>
 <h1>Listing posts</h1>
 
 <table>
@@ -45,7 +46,9 @@
   </tr>
 <% end %>
 </table>
-
+<% else %>
+<p>Please sign in to see the user feed.</p>
+<% end %>
 <br />
 
-<%= link_to 'New Post', new_post_path %>
+<%#= link_to 'New Post', new_post_path %>
