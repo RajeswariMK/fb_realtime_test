@@ -4,8 +4,12 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     p current_user, "-----------"
-    @graph = Koala::Facebook::API.new(current_user.oauth_token)
-    @post = @graph.get_connections("me", "feed")
+    if current_user
+      @graph = Koala::Facebook::API.new(current_user.oauth_token)
+      @post = @graph.get_connections("me", "feed")
+    else 
+      @post = {}  
+    end
     # p @post, ":---------------------------------------:"
     p @post.size, ":----------------"
     # @updates = Koala::Facebook::RealtimeUpdates.new(:app_id => '141213822708267', :secret => 'f9b95f55474f790335c44f4be592ec26')
