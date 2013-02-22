@@ -15,7 +15,7 @@ class FacebookRealtimeUpdatesController < ApplicationController
           render :text => 'Failed to authorize facebook challenge request'
         end
       elsif request.method == "POST"
-	    JSON.parse(request.body)
+	    p JSON.parse(request.body)
         p params, "--------------------------POST params------------"
       	if params["object"]
 
