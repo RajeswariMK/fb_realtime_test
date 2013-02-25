@@ -6,6 +6,7 @@ FbRealtimeApi::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match "facebook/subscription", :controller => :facebook_realtime_updates, :action => :subscription, :as => 'facebook_subscription', :via => [:get,:post]
+  match "get_updates", :controller => :facebook_realtime_updates, :action => :updates
   # match 'facebook', to: FacebookRealtimeUpdatesController.action(:notify), via: :post, as: :facebook_notify
   # match 'facebook', to: FacebookRealtimeUpdatesController.action(:verify), via: :get, as: :facebook_verify
   # The priority is based upon order of creation:

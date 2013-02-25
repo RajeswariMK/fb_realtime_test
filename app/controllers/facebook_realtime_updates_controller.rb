@@ -29,6 +29,11 @@ class FacebookRealtimeUpdatesController < ApplicationController
       render :text => "Thanks for the update"
     end
   end
+
+  def updates
+    @updates = FacebookLikes.find(:all)
+    
+  end
 end
 
                               

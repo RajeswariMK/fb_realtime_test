@@ -1,0 +1,5 @@
+<% if @updates %>
+	<% @updates.each do |update| %>
+	   <%= update.facebook_id %> | <%= update.time %>
+	<% end %>
+<% end %>	
