@@ -15,6 +15,7 @@ class FacebookRealtimeUpdatesController < ApplicationController
         end
     elsif request.method == "POST"
       @updated_obj = JSON.parse(request.body.read)
+      p @updated_obj, "--------------response from FB"
       facebook_like = FacebookLikes.new
       @updated_obj["entry"].each do |entry|
                                        
