@@ -1,4 +1,5 @@
 require 'json'
+require 'time'
 class FacebookRealtimeUpdatesController < ApplicationController
   def realtime_request?(request)
     ((request.method == "GET" && params['hub.mode'].present?) ||
@@ -32,7 +33,7 @@ class FacebookRealtimeUpdatesController < ApplicationController
 
   def updates
     @updates = FacebookLikes.find(:all)
-    
+
   end
 end
 

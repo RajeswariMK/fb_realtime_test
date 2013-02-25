@@ -1,5 +1,5 @@
 <% if @updates %>
 	<% @updates.each do |update| %>
-	   <%= update.facebook_id %> | <%= time_ago_in_words(update.time) %> <br />
+	   <%= update.facebook_id %> | <%= time_ago_in_words(Time.at(update.time)) %> <br />
 	<% end %>
 <% end %>	
