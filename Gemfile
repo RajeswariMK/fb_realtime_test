@@ -24,8 +24,8 @@ group :assets do
 end
 
 group :production do
-  gem 'taps'	
-  gem 'pg'
+  # gem 'taps'	
+  # gem 'mysql2'
 end
 
 gem 'jquery-rails'
