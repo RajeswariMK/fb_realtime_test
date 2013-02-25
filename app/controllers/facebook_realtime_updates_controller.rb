@@ -19,7 +19,7 @@ class FacebookRealtimeUpdatesController < ApplicationController
           @updated_obj["entry"].each do |entry|
                                            
                 facebook_like.uid = entry["uid"]
-                facebook_like.id = entry["id"]
+                facebook_like.facebook_id = entry["id"]
                 facebook_like.time = entry["time"]
                 facebook_like.changed_fields = entry["changed_fields"]
                 facebook_like.save
