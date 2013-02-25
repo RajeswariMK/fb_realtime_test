@@ -32,7 +32,7 @@ class FacebookRealtimeUpdatesController < ApplicationController
   end
 
   def updates
-    @updates = FacebookLikes.find(:all).order("desc")
+    @updates = FacebookLikes.order("time desc").all
 
   end
 end
