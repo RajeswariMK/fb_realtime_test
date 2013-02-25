@@ -15,13 +15,14 @@ class FacebookRealtimeUpdatesController < ApplicationController
           render :text => 'Failed to authorize facebook challenge request'
         end
       elsif request.method == "POST"
-	      p JSON.parse(request.body), "---------------------------------------"
+	      # p JSON.parse(request.body), "---------------------------------------"
 		    p JSON.parse(request.body.read), "--------------------------------"
         p params, "--------------------------POST params------------"
       	if params["object"]
 
       		Rails.logger.info(params["object"])
       	end
+        "fb_realtime_update_succes"
       end	
       # case request.method
 	     #  when "GET"
