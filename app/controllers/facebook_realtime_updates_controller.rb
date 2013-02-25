@@ -2,7 +2,7 @@ require 'json'
 class FacebookRealtimeUpdatesController < ApplicationController
   def realtime_request?(request)
     ((request.method == "GET" && params['hub.mode'].present?) || 
-       (request.method == "POST" && request.headers['X-Hub-Signature'].present?))
+       (request.method == "POST"))
   end
 
   def subscription
