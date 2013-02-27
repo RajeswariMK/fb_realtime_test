@@ -11,6 +11,7 @@ end
 gem 'omniauth-facebook'
 gem "koala"
 gem 'rufus-scheduler'
+gem 'rest-client'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
