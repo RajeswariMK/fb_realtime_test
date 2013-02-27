@@ -23,7 +23,10 @@ class FacebookRealtimeUpdatesController < ApplicationController
             # facebook_like.uid = entry["uid"]
             facebook_like.facebook_id = entry["id"]
             facebook_like.time = entry["time"]
-            facebook_like.changed_fields = entry["changes"]
+            change_field = entry["changes"]
+            if change_field[0]["value"]["item"] == "post"
+              facebook_like.changed_fields = change_field[0]["value"]["post_id"]
+            end  
             facebook_like.save
       end
       p facebook_like, "------------------------------------------"
