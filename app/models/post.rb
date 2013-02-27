@@ -7,7 +7,9 @@ class Post < ActiveRecord::Base
   def self.facebook_post
   	page_token = ""
     current_user = User.first
+    p current_user.oauth_token, "---current_user oauth_token"
   	@graph = Koala::Facebook::API.new(current_user.oauth_token)
+  	p @graph, "---------koala graph"
   	page_access = @graph.get_connections('me', 'accounts')
   	p page_access, "------page_access_response"
 
