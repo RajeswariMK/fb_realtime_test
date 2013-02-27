@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   	current_user ||= User.first
   	@graph = Koala::Facebook::API.new(current_user.oauth_token)
   	page_token = @graph.get_page_access_token("194805460660388")
-  	@page_graph = Koala::Facebook::API.new(page_token)
+  	@page_graph = Koala::Facebook::API.new("AAACEdEose0cBAI1EsxLaslZCKKs32KleZAnZC4TOujUpUZCDaplAfBF7xEwa6pD3bQaGLzwD508AA8eznTdk8qaxbAm83ow9BZA7UGCshDVkLs4T8jJDo")
 
 	page_feed= @page_graph.get_connection('me', 'feed') # the page's wall
 	p page_feed, "-----page_feed"
