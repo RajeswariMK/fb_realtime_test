@@ -7,9 +7,17 @@ class Post < ActiveRecord::Base
   def self.facebook_post
   	current_user ||= User.first
   	@graph = Koala::Facebook::API.new(current_user.oauth_token)
-  	@post = @graph.get_connections("me", "feed") 
+  	page_token = @graph.get_page_access_token("194805460660388")
+  	@page_graph = Koala::Facebook::API.new(page_token)
+
+	page_feed= @page_graph.get_connection('me', 'feed') # the page's wall
+	p page_feed, "-----page_feed"
+  	# result = @graph.batch do |batch_api|
+   #  	batch_api.fql_query("q1:select name from user where uid=4","q2:")
+   #  end
+  	#@post = @graph.get_connections("me", "feed") 
   	p "executing method"  
-   p @post , "post"
+    #p @post , "post"
   end 
 
 end
