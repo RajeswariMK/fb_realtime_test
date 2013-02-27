@@ -5,10 +5,17 @@ class Post < ActiveRecord::Base
   attr_accessible :caption, :comments_count, :created_time, :description, :facebook_infos_id, :fb_post_id, :fb_updated_time, :likes_count, :link_url, :message, :name, :picture_url, :post_type, :source
 
   def self.facebook_post
-  	current_user ||= User.first
+
   	@graph = Koala::Facebook::API.new(current_user.oauth_token)
-  	page_token = @graph.get_page_access_token("194805460660388")
-  	@page_graph = Koala::Facebook::API.new("AAACEdEose0cBACzaByjk84DqK9maZBHtAuwUGQTcjXWNTTkzHtCTAJ9bCeH9FEXGaRiKoNNnYLr8JtwRWqcCWZBi4HouBDEsesgYFoM1JWF9ogFrl1MwqUeWfj9DQZD")
+  	page_access = @graph.get_connections('me', 'accounts')
+  	pages.each do |page|
+  		if page["id"] == "194805460660388"
+  			page_token = page["access_token"]
+  		end
+  	end
+  	p page_token, "---------page_token"
+  	# page_token = @graph.get_page_access_token("194805460660388")
+  	@page_graph = Koala::Facebook::API.new(page_token)
 
 	page_feed= @page_graph.get_connection('me', 'feed') # the page's wall
 	p page_feed, "-----page_feed"
