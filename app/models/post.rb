@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
     current_user = User.first
   	@graph = Koala::Facebook::API.new(current_user.oauth_token)
   	page_access = @graph.get_connections('me', 'accounts')
-  	pages.each do |page|
+  	page_access.each do |page|
   		if page["id"] == "194805460660388"
   			page_token = page["access_token"]
   		end
