@@ -10,7 +10,7 @@ group :development do
 end	
 gem 'omniauth-facebook'
 gem "koala"
-
+gem 'rufus-scheduler'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
