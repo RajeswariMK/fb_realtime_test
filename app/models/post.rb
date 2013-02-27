@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'rest-client'
 
 class Post < ActiveRecord::Base
@@ -7,3 +8,4 @@ class Post < ActiveRecord::Base
   	p "executing method"  	
   end 
 end
+	
