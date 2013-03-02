@@ -8,8 +8,8 @@ class FacebookRealtimeUpdatesController < ApplicationController
 
   def subscription
     if request.method == "GET"
-      if params['hub_mode'] =='subscribe' && params['hub_verify_token'] =='stringToken' 
-        render :text => params['hub_challenge']
+      if params['hub.mode'] =='subscribe' && params['hub.verify_token'] =='stringToken' 
+        render :text => params['hub.challenge']
       else 
         render :text => 'Failed to authorize facebook challenge request'
       end
